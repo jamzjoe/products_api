@@ -1,6 +1,7 @@
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from products.models import Product
+from rest_framework.permissions import IsAuthenticated
 from .serializers import ProductSerializer
 
 @api_view(['GET'])
@@ -10,6 +11,7 @@ def getProducts(request):
     return Response({'products': serializer.data})
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def addItem(request):
     serializer = ProductSerializer(data=request.data)
     if serializer.is_valid():
@@ -18,6 +20,7 @@ def addItem(request):
     return Response(serializer.errors, status=400)
 
 @api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
 def deleteItem(request, pk):
     try:
         product = Product.objects.get(pk=pk)
@@ -30,6 +33,7 @@ def deleteItem(request, pk):
     return Response({'message': 'Product deleted successfully!'})
 
 @api_view(['PUT'])
+@permission_classes([IsAuthenticated])
 def updateItem(request, pk):
     try:
         product = Product.objects.get(pk=pk)
