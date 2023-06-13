@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-myjy7mgfasf*8t(d6-&7y$cux)s37s7l90oxu-40r(a-fgpb5y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '10.152.100.192',
+    '192.168.100.53'
+]
 
 
 # Application definition
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'products',
     "rest_framework.authtoken",
     'authentication',
+    'book'
 ]
 
 MIDDLEWARE = [
