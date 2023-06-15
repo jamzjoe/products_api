@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '10.152.100.192',
-    '192.168.100.53'
+    '192.168.56.1',
+    '192.168.100.53',
+    '127.0.0.1'
 ]
 
 
@@ -44,7 +46,8 @@ INSTALLED_APPS = [
     'products',
     "rest_framework.authtoken",
     'authentication',
-    'book'
+    'book',
+    'user'
 ]
 
 MIDDLEWARE = [

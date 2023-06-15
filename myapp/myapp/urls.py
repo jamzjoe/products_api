@@ -27,5 +27,6 @@ urlpatterns = [
     path('api/register/', RegistrationView.as_view(), name='register'),
     path('api/login/', LoginView.as_view(), name='login'),
     path('api/logout/', LogoutView.as_view(), name= 'logout'),
-    path('', include('book.urls'))
+    path('', include('book.urls')),
+    path('users/', include('user.urls'))
 ]
